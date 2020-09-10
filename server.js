@@ -37,7 +37,7 @@ var auth = require('./passport')(app);
 
 app.post("/registerUser", userRegister)
 app.post("/loginUser", loginUser)
-app.use(express.static("./client/dist/tydy"))
+app.use(express.static("./dist/tydy"))
 
 
 

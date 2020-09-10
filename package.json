@@ -8,7 +8,7 @@
     "npm": "6.14.5"
   },
   "scripts": {
-    "start": "cd client && ng build --prod && cd .. && node server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
