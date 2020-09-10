@@ -1,0 +1,77 @@
+<div class="container-fluid">
+
+    <div class="loginForm">
+        <div class="row" *ngIf="spinner">
+
+            <div style="margin-left: 45%;">
+                <p-progressSpinner></p-progressSpinner>
+
+            </div>
+        </div>
+        <div class="row" *ngIf="!spinner">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <label for="username" class="text-center"><b>Username or Mobile or Email</b></label>
+                        <input id="username" (keyup)="inputToLower()" required [(formControl)]="identifier"
+                            minlength="4" class="form-control" type="text">
+                        <div *ngIf="identifier.invalid && (identifier.dirty || identifier.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="identifier.errors.required">
+                                Username or email or mobile required
+                            </div>
+                            <div *ngIf="identifier.errors.minlength">
+                                Value must be more than 4 characters
+                            </div>
+                        </div>
+                        <br>
+                        <label for="password"><b>Password</b></label>
+                        <input id="password" required [(ngModel)]="password" #pwd="ngModel" minlength="4"
+                            class="form-control" type="password">
+                        <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)" class="alert alert-danger">
+                            <div *ngIf="pwd.errors.required">
+                                Password required
+                            </div>
+                            <div *ngIf="pwd.errors.minlength">
+                                Password must be more than 4 characters
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="text-center">
+
+                            <button [disabled]="(identifier.invalid || pwd.invalid)" class="btn btn-dark"
+                                (click)="submitClicked()">Submit</button>
+                            <br>
+                            <br>
+                            <div *ngIf="error" class="alert alert-danger">
+                                {{error}}
+
+                            </div>
+                        </div>
+
+
+
+                        <br>
+                        <br>
+
+                        <button class="btn  btn-link" routerLink="/register"><i><b>Not a user? Signup</b></i></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row mt-4 ">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                  
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+
+</div>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+/* @import ""; */
+.removeBottomMargin {
+  margin-bottom: 0px !important;
+}
+
+
+
+.loginForm {
+  margin-top: 10%;
+}
